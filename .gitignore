@@ -1,0 +1,7 @@
+# Pacotes de distribuição gerados; o código-fonte publicado está em public/.
+public/site.zip
+
+# Arquivos temporários e específicos do sistema.
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,19 @@
+/* Abertura com tempo limitado; o conteúdo permanece no HTML durante a apresentação. */
+.splash-screen{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:max(1.5rem,env(safe-area-inset-top)) max(1.5rem,env(safe-area-inset-right)) max(1.5rem,env(safe-area-inset-bottom)) max(1.5rem,env(safe-area-inset-left));background:radial-gradient(circle at 15% 15%,#ffcf64 0 5px,transparent 6px),radial-gradient(circle at 85% 75%,#ff7185 0 7px,transparent 8px),linear-gradient(145deg,#063b29,#127346);color:#fff;animation:splash-finish 3.8s ease forwards}
+.splash-seen .splash-screen,.splash-screen[hidden]{display:none!important}
+.splash-inner{width:min(100%,25rem);text-align:center}
+.splash-logo{width:clamp(5rem,24vw,8rem);height:clamp(5rem,24vw,8rem);display:grid;place-items:center;margin:0 auto 1.2rem;border-radius:50%;background:#fff;box-shadow:0 1rem 2rem #00271866}
+.splash-logo img{width:75%;height:75%;object-fit:contain}
+.splash-eyebrow{margin:0 0 .4rem;color:#b8f1c7;font:900 .65rem/1.3 'Nunito',system-ui,sans-serif;letter-spacing:.14em}
+.splash-title{margin:0;font:700 clamp(1.9rem,7vw,3rem)/1 'Fredoka',system-ui,sans-serif;letter-spacing:-.03em}
+.splash-title span{color:#ff7889}.splash-subtitle{margin:.8rem 0 1.5rem;font-size:.88rem;font-weight:800;color:#fff}
+.splash-track{height:.55rem;width:min(100%,16rem);margin:auto;border-radius:999px;background:#ffffff4d;overflow:hidden}
+.splash-track::after{content:'';display:block;width:100%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#ffd076,#ff7388);transform-origin:left;animation:splash-fill 3.4s ease-out both}
+.splash-label{margin:.7rem 0 0;color:#e1f7e7;font-size:.72rem;font-weight:800}
+@keyframes splash-fill{from{transform:scaleX(.04)}to{transform:scaleX(1)}}
+@keyframes splash-finish{0%,85%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden;pointer-events:none}}
+.music-toggle{display:grid;place-items:center;flex:none;width:3rem;height:3rem;padding:0;border:.1rem solid #f5d4d8;border-radius:.9rem;background:#fff7f5;color:#06422b;cursor:pointer}
+.music-icon{font:700 1.55rem/1 system-ui,sans-serif}.music-toggle[data-playing='true']{background:#e4f5e8;border-color:#96c9a4;color:#07572f}
+:root[data-theme='dark'] .music-toggle{background:#1a3023;border-color:#496a54;color:#e8f8ec}:root[data-theme='dark'] .music-toggle[data-playing='true']{background:#245e39;border-color:#95d4a5;color:#fff}
+@media(max-width:400px){.header-controls{gap:.25rem}.music-toggle,.theme-toggle,.menu-toggle{width:2.65rem;min-width:2.65rem;height:2.65rem;min-height:2.65rem}.header .brand img{width:2.55rem;height:2.55rem}.header .brand-text{font-size:.83rem}.header .brand{max-width:calc(100% - 8.5rem)}}
+@media(prefers-reduced-motion:reduce){.splash-screen{animation:splash-static 3.8s steps(1,end) forwards!important}.splash-track::after{animation:none!important;transform:scaleX(1)}@keyframes splash-static{from{visibility:visible}to{visibility:hidden;pointer-events:none}}}
